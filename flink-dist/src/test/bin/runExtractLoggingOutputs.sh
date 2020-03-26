@@ -17,13 +17,11 @@
 # limitations under the License.
 ################################################################################
 
-# Wrapper script to compare the TM heap size calculation of config.sh with Java
-USAGE="Usage: runBashJavaUtilsCmd.sh <command>"
+USAGE="Usage: runExtractLoggingOutputs.sh <input>"
 
-COMMAND=$1
-EXPECTED_LINES=$2
+INPUT="$1"
 
-if [[ -z "${COMMAND}" ]]; then
+if [[ -z "${INPUT}" ]]; then
   echo "$USAGE"
   exit 1
 fi
@@ -37,5 +35,4 @@ FLINK_DIST_JAR=`find $FLINK_TARGET_DIR -name 'flink-dist*.jar'`
 
 . ${bin}/../../main/flink-bin/bin/config.sh > /dev/null
 
-output=$(runBashJavaUtilsCmd ${COMMAND} ${FLINK_CONF_DIR} "$FLINK_TARGET_DIR/bash-java-utils.jar:$FLINK_DIST_JAR}")
-extractExecutionResults "${output}" ${EXPECTED_LINES}
+extractLoggingOutputs "${INPUT}"
