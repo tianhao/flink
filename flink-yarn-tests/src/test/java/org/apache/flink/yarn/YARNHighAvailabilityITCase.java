@@ -273,7 +273,7 @@ public class YARNHighAvailabilityITCase extends YarnTestBase {
 	@Nonnull
 	private YarnClusterDescriptor setupYarnClusterDescriptor() {
 		final Configuration flinkConfiguration = new Configuration();
-		flinkConfiguration.set(JobManagerOptions.TOTAL_PROCESS_MEMORY, MemorySize.parse("1g"));
+		flinkConfiguration.set(JobManagerOptions.TOTAL_PROCESS_MEMORY, MemorySize.ofMebiBytes(768));
 		flinkConfiguration.set(TaskManagerOptions.TOTAL_PROCESS_MEMORY, MemorySize.parse("1g"));
 		flinkConfiguration.setString(YarnConfigOptions.APPLICATION_ATTEMPTS, "10");
 		flinkConfiguration.setString(HighAvailabilityOptions.HA_MODE, "zookeeper");
