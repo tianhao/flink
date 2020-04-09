@@ -51,6 +51,19 @@ public class BashJavaUtilsITCase extends JavaBashTestBase {
 	}
 
 	@Test
+	public void testGetJmResourceParams() throws Exception {
+		int expectedResultLines = 1;
+		String[] commands = {
+			RUN_BASH_JAVA_UTILS_CMD_SCRIPT,
+			BashJavaUtils.Command.GET_JM_RESOURCE_PARAMS.toString(),
+			String.valueOf(expectedResultLines)};
+		List<String> lines = Arrays.asList(executeScript(commands).split(System.lineSeparator()));
+
+		assertEquals(expectedResultLines, lines.size());
+		ConfigurationUtils.parseJvmArgString(lines.get(0));
+	}
+
+	@Test
 	public void testExtractLoggingOutputs() throws Exception {
 		StringBuilder input = new StringBuilder();
 		List<String> expectedOutput = new ArrayList<>();
