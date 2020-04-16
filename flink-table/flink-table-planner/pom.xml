@@ -267,6 +267,7 @@ under the License.
 						<goals>
 							<goal>add-source</goal>
 							<goal>compile</goal>
+							<goal>run</goal>
 						</goals>
 					</execution>
 

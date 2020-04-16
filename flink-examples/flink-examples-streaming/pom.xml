@@ -381,6 +381,7 @@ under the License.
 						<phase>process-resources</phase>
 						<goals>
 							<goal>compile</goal>
+							<goal>run</goal>
 						</goals>
 					</execution>
  
